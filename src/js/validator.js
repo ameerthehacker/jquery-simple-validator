@@ -8,6 +8,8 @@ export const validateForms = () => {
   const forms = $("form[validate=true]").toArray();
 
   forms.forEach((form, index) => {
+    // Remove ugly html5 validations
+    $(form).attr("novalidate", true);
     // Set an unique id for each form
     $(form).attr("data-uid", `form-${index}`);
     validateForm(form);
