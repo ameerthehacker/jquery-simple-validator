@@ -204,6 +204,30 @@ const validateField = input => {
         : valid;
     }
   }
+  if ($(input).attr("maxlength")) {
+    const maxLength = $(input).attr("maxlength");
+
+    valid = valid
+      ? validate(
+          input,
+          "value",
+          validationFn.maxLength,
+          `This should be less than ${maxLength} character(s)`
+        )
+      : valid;
+  }
+  if ($(input).attr("minlength")) {
+    const minLength = $(input).attr("minlength");
+
+    valid = valid
+      ? validate(
+          input,
+          "value",
+          validationFn.minLength,
+          `This should be atleast ${minLength} character(s)`
+        )
+      : valid;
+  }
 
   return valid;
 };

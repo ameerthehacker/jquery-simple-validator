@@ -125,7 +125,7 @@ export const validationFn = {
   max: obj => {
     const maxValue = parseInt($(obj.input).attr("max"));
 
-    if (obj.value < maxValue) {
+    if (obj.value <= maxValue) {
       return true;
     } else {
       return false;
@@ -134,7 +134,25 @@ export const validationFn = {
   min: obj => {
     const minValue = parseInt($(obj.input).attr("min"));
 
-    if (obj.value > minValue) {
+    if (obj.value >= minValue) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  maxLength: obj => {
+    const maxLength = parseInt($(obj.input).attr("maxlength"));
+
+    if (obj.value.length <= maxLength) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  minLength: obj => {
+    const minLength = parseInt($(obj.input).attr("minlength"));
+
+    if (obj.value.length >= minLength) {
       return true;
     } else {
       return false;
