@@ -40,5 +40,15 @@ export const validationFn = {
     } else {
       return false;
     }
+  },
+  match: obj => {
+    // Get the other field with which the value is to be matched
+    const otherInput = $($(obj.input).attr("data-match-field"));
+
+    if (otherInput.prop(obj.property) == obj.value) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
