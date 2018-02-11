@@ -28,8 +28,15 @@ const validateForm = form => {
   validateInputs(inputs);
   // Check during form submission and prevent if invalid
   $(form).on("submit", evt => {
+    let focusedFirstInvalidInput = false;
+
     inputs.forEach(input => {
       if (!validateInput(input)) {
+        // Put the focus on the first invalid input
+        if (!focusedFirstInvalidInput) {
+          $(input).focus();
+          focusedFirstInvalidInput = true;
+        }
         evt.preventDefault();
       }
     });
