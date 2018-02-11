@@ -42,7 +42,12 @@ const validateInputs = inputs => {
     $(input).attr("data-uid", `${formUID}-field-${index}`);
     $(input).on("blur", evt => {
       if ($(input).attr("required")) {
-        validate(input, "value", validationFn.required);
+        validate(
+          input,
+          "value",
+          validationFn.required,
+          "This field is required"
+        );
       }
     });
   });
@@ -53,13 +58,15 @@ const validateInputs = inputs => {
  * @param {Object} input Input Object to be validated
  * @param {String} property Property of input that is to be validated
  * @param {Function} validation Validation function to be applied
+ * @param {String} errorMessage Error message to be shown in error container
  */
-const validate = (input, property, validation) => {
+const validate = (input, property, validation, errorMessage) => {
   const errorContainer = initErrorContainer(input);
+  errorMessage = $(input).attr("data-error") || errorMessage;
 
   if (!validation($(input).prop(property))) {
     $(input).addClass("error");
-    errorContainer.innerHTML = "This field is required";
+    errorContainer.innerHTML = errorMessage;
   } else {
     $(input).removeClass("error");
     errorContainer.remove();
@@ -78,7 +85,6 @@ const initErrorContainer = input => {
 
   // Check if error container already exists
   if ($(`#${errorContainerUID}`).length == 0) {
-    console.log($(`#${errorContainerUID}`).length);
     errorContainer = document.createElement("div");
     errorContainer.setAttribute("id", errorContainerUID);
     errorContainer.className = "error-field";
