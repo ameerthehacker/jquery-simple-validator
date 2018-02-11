@@ -75,6 +75,11 @@ const validateInput = input => {
       !valid ||
       validate(input, "value", validationFn.email, "The email is invalid");
   }
+  if ($(input).attr("type") == "url") {
+    valid =
+      !valid ||
+      validate(input, "value", validationFn.url, "The url is invalid");
+  }
 
   return valid;
 };

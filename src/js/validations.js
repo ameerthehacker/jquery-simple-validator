@@ -13,5 +13,13 @@ export const validationFn = {
     } else {
       return false;
     }
+  },
+  url: value => {
+    const urlRegEx = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+    if (urlRegEx.test(value)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
