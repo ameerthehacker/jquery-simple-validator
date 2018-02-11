@@ -50,5 +50,25 @@ export const validationFn = {
     } else {
       return false;
     }
+  },
+  fileTypes: obj => {
+    const selectedFiles = obj.input.files;
+    const allowedFileTypes = $(obj.input)
+      .attr("data-file-types")
+      .split(",");
+    let valid = false;
+
+    Object.values(selectedFiles).forEach(file => {
+      if (typeof file == "object") {
+        valid = allowedFileTypes.find(allowedFileType => {
+          return file.type == allowedFileType;
+        });
+        if (!valid) {
+          return;
+        }
+      }
+    });
+
+    return valid;
   }
 };

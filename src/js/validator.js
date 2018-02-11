@@ -53,9 +53,15 @@ const validateFields = inputs => {
     const formUID = $(input)
       .parent("form")
       .attr("data-uid");
+    // Event to trigger validation
+    let event = "blur";
     // Set an unique id for each form
     $(input).attr("data-uid", `${formUID}-field-${index}`);
-    $(input).on("blur", evt => {
+    if ($(input).attr("type") == "file") {
+      // Validation of file field must be triggered only after change event
+      event = "change";
+    }
+    $(input).on(event, evt => {
       validateField(input);
     });
   });
@@ -130,6 +136,16 @@ const validateField = input => {
           "value",
           validationFn.match,
           `${$(input).attr("data-match")} fields does not match`
+        )
+      : valid;
+  }
+  if ($(input).attr("type") == "file" && $(input).attr("data-file-types")) {
+    valid = valid
+      ? validate(
+          input,
+          "",
+          validationFn.fileTypes,
+          `Invalid file type selected`
         )
       : valid;
   }
