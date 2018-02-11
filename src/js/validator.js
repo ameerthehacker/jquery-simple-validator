@@ -26,6 +26,14 @@ const validateForm = form => {
     .find("input")
     .toArray();
   validateInputs(inputs);
+  // Check during form submission and prevent if invalid
+  $(form).on("submit", evt => {
+    inputs.forEach(input => {
+      if (!validateInput(input)) {
+        evt.preventDefault();
+      }
+    });
+  });
 };
 
 /**
@@ -41,16 +49,25 @@ const validateInputs = inputs => {
     // Set an unique id for each form
     $(input).attr("data-uid", `${formUID}-field-${index}`);
     $(input).on("blur", evt => {
-      if ($(input).attr("required")) {
-        validate(
-          input,
-          "value",
-          validationFn.required,
-          "This field is required"
-        );
-      }
+      validateInput(input);
     });
   });
+};
+
+/**
+ * Validates a particular input and returs true or false
+ * @param {Object} input Input Object to be validated
+ * @returns {Boolean} Whether the input field is valid or not
+ */
+const validateInput = input => {
+  if ($(input).attr("required")) {
+    return validate(
+      input,
+      "value",
+      validationFn.required,
+      "This field is required"
+    );
+  }
 };
 
 /**
@@ -59,6 +76,7 @@ const validateInputs = inputs => {
  * @param {String} property Property of input that is to be validated
  * @param {Function} validation Validation function to be applied
  * @param {String} errorMessage Error message to be shown in error container
+ * @returns {Boolean} Whether the validation passed or not
  */
 const validate = (input, property, validation, errorMessage) => {
   const errorContainer = initErrorContainer(input);
@@ -67,9 +85,13 @@ const validate = (input, property, validation, errorMessage) => {
   if (!validation($(input).prop(property))) {
     $(input).addClass("error");
     errorContainer.innerHTML = errorMessage;
+
+    return false;
   } else {
     $(input).removeClass("error");
     errorContainer.remove();
+
+    return true;
   }
 };
 
