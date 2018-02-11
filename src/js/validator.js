@@ -25,13 +25,13 @@ const validateForm = form => {
   const inputs = $(form)
     .find("input, textarea, select")
     .toArray();
-  validateInputs(inputs);
+  validateFields(inputs);
   // Check during form submission and prevent if invalid
   $(form).on("submit", evt => {
     let focusedFirstInvalidInput = false;
 
     inputs.forEach(input => {
-      if (!validateInput(input)) {
+      if (!validateField(input)) {
         // Put the focus on the first invalid input
         if (!focusedFirstInvalidInput) {
           $(input).focus();
@@ -47,7 +47,7 @@ const validateForm = form => {
  * Validate the array of input fields passed to it
  * @param {Array<Object>} inputs
  */
-const validateInputs = inputs => {
+const validateFields = inputs => {
   inputs.forEach((input, index) => {
     // Get the form uid
     const formUID = $(input)
@@ -56,7 +56,7 @@ const validateInputs = inputs => {
     // Set an unique id for each form
     $(input).attr("data-uid", `${formUID}-field-${index}`);
     $(input).on("blur", evt => {
-      validateInput(input);
+      validateField(input);
     });
   });
 };
@@ -66,7 +66,7 @@ const validateInputs = inputs => {
  * @param {Object} input Input Object to be validated
  * @returns {Boolean} Whether the input field is valid or not
  */
-const validateInput = input => {
+const validateField = input => {
   let valid = true;
 
   if ($(input).attr("required")) {
