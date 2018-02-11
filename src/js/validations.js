@@ -1,6 +1,6 @@
 export const validationFn = {
   required: value => {
-    if (value.length > 0) {
+    if (value) {
       return true;
     } else {
       return false;
