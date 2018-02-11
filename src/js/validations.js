@@ -21,5 +21,13 @@ export const validationFn = {
     } else {
       return false;
     }
+  },
+  mobile: value => {
+    const mobileRegEx = /^\d{10}$/;
+    if (mobileRegEx.test(value)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };

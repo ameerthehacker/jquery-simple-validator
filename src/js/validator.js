@@ -92,6 +92,16 @@ const validateInput = input => {
       ? validate(input, "value", validationFn.url, "The url is invalid")
       : valid;
   }
+  if ($(input).attr("type") == "mobile") {
+    valid = valid
+      ? validate(
+          input,
+          "value",
+          validationFn.mobile,
+          "The mobile number is invalid"
+        )
+      : valid;
+  }
   return valid;
 };
 
