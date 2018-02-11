@@ -175,6 +175,35 @@ const validateField = input => {
         : valid;
     }
   }
+  if ($(input).attr("type") == "number") {
+    valid = valid
+      ? validate(input, "value", validationFn.isNumber, "This is not a number")
+      : valid;
+    if ($(input).attr("max")) {
+      const maxValue = $(input).attr("max");
+
+      valid = valid
+        ? validate(
+            input,
+            "value",
+            validationFn.max,
+            `This should be < ${maxValue}`
+          )
+        : valid;
+    }
+    if ($(input).attr("min")) {
+      const minValue = $(input).attr("min");
+
+      valid = valid
+        ? validate(
+            input,
+            "value",
+            validationFn.min,
+            `This should be > ${minValue}`
+          )
+        : valid;
+    }
+  }
 
   return valid;
 };

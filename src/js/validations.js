@@ -114,6 +114,31 @@ export const validationFn = {
     });
 
     return valid;
+  },
+  isNumber: obj => {
+    if ($.isNumeric(obj.value)) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  max: obj => {
+    const maxValue = parseInt($(obj.input).attr("max"));
+
+    if (obj.value < maxValue) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  min: obj => {
+    const minValue = parseInt($(obj.input).attr("min"));
+
+    if (obj.value > minValue) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
 
