@@ -60,14 +60,23 @@ const validateInputs = inputs => {
  * @returns {Boolean} Whether the input field is valid or not
  */
 const validateInput = input => {
+  let valid = true;
+
   if ($(input).attr("required")) {
-    return validate(
-      input,
-      "value",
-      validationFn.required,
-      "This field is required"
-    );
+    /** Change the value of valid only when it is true
+     * This is to avoid the valid from changing from false to true once it is set false by any one kind of validation
+     **/
+    valid =
+      !valid ||
+      validate(input, "value", validationFn.required, "This field is required");
   }
+  if ($(input).attr("type") == "email") {
+    valid =
+      !valid ||
+      validate(input, "value", validationFn.email, "The email is invalid");
+  }
+
+  return valid;
 };
 
 /**

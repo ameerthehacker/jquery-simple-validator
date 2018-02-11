@@ -5,5 +5,13 @@ export const validationFn = {
     } else {
       return false;
     }
+  },
+  email: value => {
+    const emailRegEx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (emailRegEx.test(value)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
