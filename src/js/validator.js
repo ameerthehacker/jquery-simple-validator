@@ -23,7 +23,7 @@ export const validateForms = () => {
 const validateForm = form => {
   // Get all the inputs in the form
   const inputs = $(form)
-    .find("input")
+    .find("input, textarea")
     .toArray();
   validateInputs(inputs);
   // Check during form submission and prevent if invalid
