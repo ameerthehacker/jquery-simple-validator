@@ -139,15 +139,41 @@ const validateField = input => {
         )
       : valid;
   }
-  if ($(input).attr("type") == "file" && $(input).attr("data-file-types")) {
-    valid = valid
-      ? validate(
-          input,
-          "",
-          validationFn.fileTypes,
-          `Invalid file type selected`
-        )
-      : valid;
+  if ($(input).attr("type") == "file") {
+    if ($(input).attr("data-file-types")) {
+      valid = valid
+        ? validate(
+            input,
+            "",
+            validationFn.fileTypes,
+            `Invalid file type selected`
+          )
+        : valid;
+    }
+    if ($(input).attr("data-file-max-size")) {
+      const maxSize = $(input).attr("data-file-max-size");
+
+      valid = valid
+        ? validate(
+            input,
+            "",
+            validationFn.fileMaxSize,
+            `File size must be < ${maxSize}`
+          )
+        : valid;
+    }
+    if ($(input).attr("data-file-min-size")) {
+      const maxSize = $(input).attr("data-file-min-size");
+
+      valid = valid
+        ? validate(
+            input,
+            "",
+            validationFn.fileMinSize,
+            `File size must be > ${maxSize}`
+          )
+        : valid;
+    }
   }
 
   return valid;

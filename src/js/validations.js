@@ -70,5 +70,64 @@ export const validationFn = {
     });
 
     return valid;
+  },
+  fileMaxSize: obj => {
+    const selectedFiles = obj.input.files;
+    const maxFileSize = $(obj.input)
+      .attr("data-file-max-size")
+      .toLowerCase();
+    let maxFileSizeInBytes = 0;
+    let valid = true;
+
+    maxFileSizeInBytes = getFileSizeInBytes(maxFileSize);
+    Object.values(selectedFiles).forEach(file => {
+      if (typeof file == "object") {
+        if (file.size > maxFileSizeInBytes) {
+          valid = false;
+        }
+      }
+      if (!valid) {
+        return;
+      }
+    });
+
+    return valid;
+  },
+  fileMinSize: obj => {
+    const selectedFiles = obj.input.files;
+    const minFileSize = $(obj.input)
+      .attr("data-file-min-size")
+      .toLowerCase();
+    let minFileSizeInBytes = 0;
+    let valid = true;
+
+    minFileSizeInBytes = getFileSizeInBytes(minFileSize);
+    Object.values(selectedFiles).forEach(file => {
+      if (typeof file == "object") {
+        if (file.size < minFileSizeInBytes) {
+          valid = false;
+        }
+      }
+      if (!valid) {
+        return;
+      }
+    });
+
+    return valid;
   }
 };
+
+/**
+ * Gets the file size in human readable string form such as 1kb, 1mb returns it in bytes as number
+ * @param {String} size File size represented as 1kb, 1mb or 1gb etc.
+ * @returns {Number} The size in number as bytes
+ */
+function getFileSizeInBytes(size) {
+  if (size.endsWith("kb")) {
+    return parseInt(size) * 1024;
+  } else if (size.endsWith("mb")) {
+    return parseInt(size) * 1024 * 1024;
+  } else if (size.endsWith("gb")) {
+    return parseInt(size) * 1024 * 1024 * 1024;
+  }
+}

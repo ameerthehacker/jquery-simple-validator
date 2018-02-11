@@ -68,7 +68,9 @@
           <div class="form-group">
             <label for="exampleFile1">Profile Picture</label>
             <br>
-            <input type="file" data-file-types="image/jpeg,image/png" id="exampleFile1" multiple required>
+            <input type="file" data-file-types="image/jpeg,image/png" id="exampleFile1" data-file-max-size="100kb" data-file-min-size="50kb"
+              required>
+            <p>Choose a jpeg or png image with min size of 50kb and max size of 100 kb</p>
           </div>
           <div class="form-group">
             <label class="checkbox-inline">
