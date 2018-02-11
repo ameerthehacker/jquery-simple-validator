@@ -113,6 +113,17 @@ const validateInput = input => {
         )
       : valid;
   }
+  if ($(input).attr("pattern")) {
+    valid = valid
+      ? validate(
+          input,
+          "value",
+          validationFn.pattern,
+          "Please match the requested pattern"
+        )
+      : valid;
+  }
+
   return valid;
 };
 
@@ -128,7 +139,7 @@ const validate = (input, property, validation, errorMessage) => {
   const errorContainer = initErrorContainer(input);
   errorMessage = $(input).attr("data-error") || errorMessage;
 
-  if (!validation($(input).prop(property))) {
+  if (!validation({ input: input, value: $(input).prop(property) })) {
     $(input).addClass("error");
     errorContainer.innerHTML = errorMessage;
 
