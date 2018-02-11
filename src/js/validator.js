@@ -73,21 +73,25 @@ const validateInput = input => {
     /** Change the value of valid only when it is true
      * This is to avoid the valid from changing from false to true once it is set false by any one kind of validation
      **/
-    valid =
-      !valid ||
-      validate(input, "value", validationFn.required, "This field is required");
+    valid = valid
+      ? validate(
+          input,
+          "value",
+          validationFn.required,
+          "This field is required"
+        )
+      : valid;
   }
   if ($(input).attr("type") == "email") {
-    valid =
-      !valid ||
-      validate(input, "value", validationFn.email, "The email is invalid");
+    valid = valid
+      ? validate(input, "value", validationFn.email, "The email is invalid")
+      : valid;
   }
   if ($(input).attr("type") == "url") {
-    valid =
-      !valid ||
-      validate(input, "value", validationFn.url, "The url is invalid");
+    valid = valid
+      ? validate(input, "value", validationFn.url, "The url is invalid")
+      : valid;
   }
-
   return valid;
 };
 
