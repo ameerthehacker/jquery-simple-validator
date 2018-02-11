@@ -70,17 +70,28 @@ const validateInput = input => {
   let valid = true;
 
   if ($(input).attr("required")) {
-    /** Change the value of valid only when it is true
-     * This is to avoid the valid from changing from false to true once it is set false by any one kind of validation
-     **/
-    valid = valid
-      ? validate(
-          input,
-          "value",
-          validationFn.required,
-          "This field is required"
-        )
-      : valid;
+    if ($(input).attr("type") == "checkbox") {
+      /** Change the value of valid only when it is true
+       * This is to avoid the valid from changing from false to true once it is set false by any one kind of validation
+       **/
+      valid = valid
+        ? validate(
+            input,
+            "checked",
+            validationFn.required,
+            "You need to check this"
+          )
+        : valid;
+    } else {
+      valid = valid
+        ? validate(
+            input,
+            "value",
+            validationFn.required,
+            "This field is required"
+          )
+        : valid;
+    }
   }
   if ($(input).attr("type") == "email") {
     valid = valid
