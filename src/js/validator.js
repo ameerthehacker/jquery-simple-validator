@@ -157,10 +157,12 @@ const validate = (input, property, validation, errorMessage) => {
     })
   ) {
     $(input).addClass("error");
+    $(input).removeClass("no-error");
     errorContainer.innerHTML = errorMessage;
 
     return false;
   } else {
+    $(input).addClass("no-error");
     $(input).removeClass("error");
     errorContainer.remove();
 
