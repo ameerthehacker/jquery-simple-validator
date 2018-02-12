@@ -1,12 +1,16 @@
-.error {
+input:not([type="file"]).error,
+textarea.error,
+select.error {
   border: 1px solid red !important;
 }
 
-.no-error {
+input:not([type="file"]).no-error,
+textarea.no-error,
+select.no-error {
   border: 1px solid green !important;
 }
 
-.error-field {
+div.error-field {
   color: red;
   font-size: small;
 }
