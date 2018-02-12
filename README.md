@@ -177,7 +177,7 @@ You can add the attribute **data-error** to any input fields to customize the er
 
 * [x] Create a basic validator targeting HTML5 validators
 * [ ] Allow custom messages for specific validations
-* [ ] Create aysnc validator
+* [ ] Create async validator
 * [ ] Create custom validator functions
 * [ ] Add test suites
 
