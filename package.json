@@ -1,14 +1,13 @@
 {
   "name": "jQuery-simple-validator",
   "version": "1.0.0",
-  "description":
-    "It is a lightweight jQuery form validator which enhances on html5 validations",
+  "description": "It is a lightweight jQuery form validator which enhances on html5 validations",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "docs":
-      "jsdoc -c jsdoc.conf.json --readme README.md --destination dist/api",
-    "test": "bundlesize"
+    "docs": "jsdoc -c jsdoc.conf.json --readme README.md --destination dist/api",
+    "test:size": "bundlesize",
+    "test": "jest ./test/test.js || true"
   },
   "bundlesize": [
     {
@@ -16,7 +15,12 @@
       "maxSize": "7 kB"
     }
   ],
-  "keywords": ["gulp", "jQuery", "validator", "html5"],
+  "keywords": [
+    "gulp",
+    "jQuery",
+    "validator",
+    "html5"
+  ],
   "author": "ameerthehacker",
   "license": "MIT",
   "devDependencies": {
@@ -36,6 +40,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
+    "jest": "^22.4.2",
+    "jquery": "^3.3.1",
     "jsdoc": "^3.5.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
