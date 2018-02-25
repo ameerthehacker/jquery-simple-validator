@@ -144,10 +144,6 @@ Two input fields can be cross validated to have same value, for instance passwor
 * **data-match**: The word to be used in error message
 * **data-match-field**: The other field whoes value is to be compared with this input field
 
-```html
-<input type="password">
-```
-
 ### File Types
 
 The file input field can be validated to have only specific file types
