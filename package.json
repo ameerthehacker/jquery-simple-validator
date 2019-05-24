@@ -41,7 +41,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
     "jest": "^22.4.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "jsdoc": "^3.5.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
