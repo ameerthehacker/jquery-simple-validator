@@ -58,7 +58,7 @@ div.error-field {
 3. Add validate=true attribute to the forms you want to validate
 
 ```html
-<form validate=true>
+<form validate="true">
   ...
 </form>
 ```
@@ -72,12 +72,12 @@ Voila! now all your HTML5 validations will have a new look like a charm!
 Add the HTML5 attribute required to mandatory fields
 
 ```html
-<input type="text" name="username" required>
-<input type="password" name="password" required>
+<input type="text" name="username" required />
+<input type="password" name="password" required />
 <select required>
   ...
 </select>
-<input type="file" name="propic" required>
+<input type="file" name="propic" required />
 <textarea required></textarea>
 ```
 
@@ -86,7 +86,7 @@ Add the HTML5 attribute required to mandatory fields
 For the email type input fields email validations will be applied
 
 ```html
-<input type="email">
+<input type="email" />
 ```
 
 ### Min Length and Max Length
@@ -102,7 +102,7 @@ Add the HTML5 attribute minlength, maxlength to specify the allowed minimum and 
 For the URL type input fields url validations will be applied
 
 ```html
-<input type="url">
+<input type="url" />
 ```
 
 ### Number
@@ -110,18 +110,18 @@ For the URL type input fields url validations will be applied
 For the number type input fields the value will be validated to be a number
 
 ```html
-<input type="number" name="age "min="10" max="100">
+<input type="number" name="age " min="10" max="100" />
 ```
 
-* **min**: Minimum allowed number
-* **max**: Maximum allowed number
+- **min**: Minimum allowed number
+- **max**: Maximum allowed number
 
 ### Mobile
 
 For the mobile type input fields 10 digit mobile number validations will be applied
 
 ```html
-<input type="mobile">
+<input type="mobile" />
 ```
 
 ### Pattern
@@ -129,7 +129,7 @@ For the mobile type input fields 10 digit mobile number validations will be appl
 If HTML5 attribute pattern is present in the input field it's value will be validated against it
 
 ```html
-<input name="country_code" pattern="^[A-Za-z]{3}$">
+<input name="country_code" pattern="^[A-Za-z]{3}$" />
 ```
 
 ### Match
@@ -137,33 +137,37 @@ If HTML5 attribute pattern is present in the input field it's value will be vali
 Two input fields can be cross validated to have same value, for instance password and confirm password field
 
 ```html
-<input type="password" id="passwordInput">
-<input type="password" data-match="password" data-match-field="#passwordInput">
+<input type="password" id="passwordInput" />
+<input
+  type="password"
+  data-match="password"
+  data-match-field="#passwordInput"
+/>
 ```
 
-* **data-match**: The word to be used in error message
-* **data-match-field**: The other field whoes value is to be compared with this input field
+- **data-match**: The word to be used in error message
+- **data-match-field**: The other field whoes value is to be compared with this input field
 
 ### File Types
 
 The file input field can be validated to have only specific file types
 
 ```html
-<input type="file" data-file-types="image/jpeg,image/png">
+<input type="file" data-file-types="image/jpeg,image/png" />
 ```
 
-* **data-file-types**: Specifies the list of allowed mime types seperated by comma
+- **data-file-types**: Specifies the list of allowed mime types seperated by comma
 
 ### File Sizes
 
 The file input field can be validated to have a minimum and a maximum file size if needed
 
 ```html
-<input type="file" data-file-min-size="50kb" data-file-max-size="5mb">
+<input type="file" data-file-min-size="50kb" data-file-max-size="5mb" />
 ```
 
-* **data-file-min-size**: Specifies the allowed minimum size of file in kb, mb or gb
-* **data-file-max-size**: Specifies the allowed maximum size of file in kb, mb or gb
+- **data-file-min-size**: Specifies the allowed minimum size of file in kb, mb or gb
+- **data-file-max-size**: Specifies the allowed maximum size of file in kb, mb or gb
 
 ## Custom error messages
 
@@ -174,16 +178,16 @@ You can add the attribute **data-error** to any input fields to customize the er
 I use **jest** for testing, to run tests
 
 ```bash
-npm test
+yarn test
 ```
 
 ## Roadmap
 
-* [x] Create a basic validator targeting HTML5 validators
-* [ ] Allow custom messages for specific validations
-* [ ] Create async validator
-* [ ] Create custom validator functions
-* [x] Add test suites
+- [x] Create a basic validator targeting HTML5 validators
+- [ ] Allow custom messages for specific validations
+- [ ] Create async validator
+- [ ] Create custom validator functions
+- [x] Add test suites
 
 ## License
 
