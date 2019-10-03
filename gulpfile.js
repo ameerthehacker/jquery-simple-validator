@@ -89,17 +89,17 @@ gulp.task("html", () => {
 Gulp task to watch the changes in the src directory
 */
 gulp.task("watch", () => {
-  gulp.watch(`${srcDir}/sass/*.scss`, ["sass"]);
+  gulp.watch(`${srcDir}/sass/*.scss`, gulp.series("sass"));
   gulp.watch(
     [
       `${srcDir}/images/**/*.png`,
       `${srcDir}/images/**/*.jpg`,
       `${srcDir}/images/**/*.jpeg`
     ],
-    ["imagemin"]
+    gulp.series("imagemin")
   );
-  gulp.watch(`${srcDir}/**/*.html`, ["html"]);
-  gulp.watch(`${srcDir}/js/**/*.js`, ["js"]);
+  gulp.watch(`${srcDir}/**/*.html`, gulp.series("html"));
+  gulp.watch(`${srcDir}/js/**/*.js`, gulp.series("js"));
 });
 
 gulp.task("webserver", () => {
@@ -115,9 +115,12 @@ gulp.task("webserver", () => {
 /*
 Gulp task to build the src directory to dist directory
 */
-gulp.task("serve", ["sass", "imagemin", "js", "html", "watch", "webserver"]);
+gulp.task(
+  "serve",
+  gulp.parallel("sass", "imagemin", "js", "html", "watch", "webserver")
+);
 
 /*
 Gulp default task
 */
-gulp.task("default", ["serve"]);
+gulp.task("default", gulp.parallel("serve"));
