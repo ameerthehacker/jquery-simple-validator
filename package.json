@@ -8,6 +8,7 @@
     "docs": "jsdoc -c jsdoc.conf.json --readme README.md --destination dist/api",
     "test:size": "bundlesize",
     "test": "jest ./test/test.js || true",
+    "test:coverage": "jest --coverage --watchAll=false",
     "lint": "eslint ."
   },
   "husky": {
