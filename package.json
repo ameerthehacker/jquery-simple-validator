@@ -10,6 +10,11 @@
     "test": "jest ./test/test.js || true",
     "lint": "eslint ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "bundlesize": [
     {
       "path": "./dist/jquery-simple-validator.min.js",
