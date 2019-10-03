@@ -7,7 +7,8 @@
     "start": "gulp",
     "docs": "jsdoc -c jsdoc.conf.json --readme README.md --destination dist/api",
     "test:size": "bundlesize",
-    "test": "jest ./test/test.js || true"
+    "test": "jest ./test/test.js || true",
+    "lint": "eslint ."
   },
   "bundlesize": [
     {
