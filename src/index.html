@@ -1,91 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jQuery Simple Validation</title>
+    <link rel="stylesheet" href="bundle.min.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- jQuery -->
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="jquery-simple-validator.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>jQuery Simple Validation</title>
-  <link rel="stylesheet" href="bundle.min.css">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-  <!-- jQuery -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="jquery-simple-validator.min.js"></script>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="offset-md-2 col-md-8">
-        <form validate="true">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input maxlength="10" minlength="3" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="exampleConfirmPassword1">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleConfirmPassword1" placeholder="Confirm Password" required data-match="password"
-              data-match-field="#exampleInputPassword1">
-          </div>
-          <div class="form-group">
-            <label for="exampleNumber1">Age</label>
-            <input class="form-control" type="number" id="exampleNumber1" placeholder="Your age" max="100" min="10">
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea1">Something about you</label>
-            <textarea maxlength="40" minlength="10" id="exampleTextarea1" class="form-control" placeholder="Few line about you" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputSelect1">You are</label>
-            <select class="form-control" required>
-              <option value="">Select one</option>
-              <option value="Student">
-                Student
-              </option>
-              <option value="Working">
-                Working
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleURL1">Blog URL</label>
-            <input type="url" class="form-control" id="exampleURL1" placeholder="http://www.example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="exampleMobile1">Mobile Number</label>
-            <input type="mobile" class="form-control" id="exampleMobile1" placeholder="Mobile number" required>
-          </div>
-          <div class="form-group">
-            <label for="examplePattern1">3 letter Country code</label>
-            <input type="text" class="form-control" id="examplePattern1" placeholder="Ex: IND, ENG" required pattern="^[A-Za-z]{3}$">
-          </div>
-          <div class="form-group">
-            <label for="exampleFile1">Profile Picture</label>
-            <br>
-            <input type="file" data-file-types="image/jpeg,image/png" id="exampleFile1" data-file-max-size="100kb" data-file-min-size="50kb"
-              required>
-            <p>Choose a jpeg or png image with min size of 50kb and max size of 100 kb</p>
-          </div>
-          <div class="form-group">
-            <label class="checkbox-inline">
-              <input type="checkbox" value="true" required>I agree to the terms and conditions
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-2 col-md-8">
+          <form validate="true">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                maxlength="10"
+                minlength="3"
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleConfirmPassword1">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleConfirmPassword1"
+                placeholder="Confirm Password"
+                required
+                data-match="password"
+                data-match-field="#exampleInputPassword1"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleNumber1">Age</label>
+              <input
+                class="form-control"
+                type="number"
+                id="exampleNumber1"
+                placeholder="Your age"
+                max="100"
+                min="10"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea1">Something about you</label>
+              <textarea
+                maxlength="40"
+                minlength="10"
+                id="exampleTextarea1"
+                class="form-control"
+                placeholder="Few line about you"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputSelect1">You are</label>
+              <select class="form-control" required>
+                <option value="">Select one</option>
+                <option value="Student">
+                  Student
+                </option>
+                <option value="Working">
+                  Working
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleURL1">Blog URL</label>
+              <input
+                type="url"
+                class="form-control"
+                id="exampleURL1"
+                placeholder="http://www.example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleMobile1">Mobile Number</label>
+              <input
+                type="mobile"
+                class="form-control"
+                id="exampleMobile1"
+                placeholder="Mobile number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="examplePattern1">3 letter Country code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="examplePattern1"
+                placeholder="Ex: IND, ENG"
+                required
+                pattern="^[A-Za-z]{3}$"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFile1">Profile Picture</label>
+              <br />
+              <input
+                type="file"
+                data-file-types="image/jpeg,image/png"
+                id="exampleFile1"
+                data-file-max-size="100kb"
+                data-file-min-size="50kb"
+                required
+              />
+              <p>
+                Choose a jpeg or png image with min size of 50kb and max size of
+                100 kb
+              </p>
+            </div>
+            <div class="form-group">
+              <label class="checkbox-inline">
+                <input type="checkbox" value="true" required />I agree to the
+                terms and conditions
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
