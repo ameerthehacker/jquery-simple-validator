@@ -35,9 +35,9 @@
     "@babel/preset-env": "7.6.2",
     "babel-eslint": "10.0.3",
     "babelify": "^10.0.0",
-    "browserify": "^14.5.0",
-    "bundlesize": "^0.16.0",
-    "colors": "^1.1.2",
+    "browserify": "^16.5.0",
+    "bundlesize": "^0.18.0",
+    "colors": "^1.4.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
@@ -46,29 +46,40 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-imagemin": "^3.4.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^6.1.1",
     "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
     "gulp-webserver": "^0.9.1",
     "husky": "^3.0.8",
     "jest": "^24.9.0",
     "jquery": "^3.4.1",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.3",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "peerDependencies": {
     "jQuery": "^3.3.1"
   },
   "jest": {
     "testURL": "http://localhost/"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manojkrishnak/jquery-simple-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manojkrishnak/jquery-simple-validator/issues"
+  },
+  "homepage": "https://github.com/manojkrishnak/jquery-simple-validator#readme"
 }
