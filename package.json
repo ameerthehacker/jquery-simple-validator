@@ -76,10 +76,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manojkrishnak/jquery-simple-validator.git"
+    "url": "git+https://github.com/ameerthehacker/jquery-simple-validator.git"
   },
   "bugs": {
-    "url": "https://github.com/manojkrishnak/jquery-simple-validator/issues"
+    "url": "https://github.com/ameerthehacker/jquery-simple-validator/issues"
   },
-  "homepage": "https://github.com/manojkrishnak/jquery-simple-validator#readme"
+  "homepage": "https://github.com/ameerthehacker/jquery-simple-validator#readme"
 }
